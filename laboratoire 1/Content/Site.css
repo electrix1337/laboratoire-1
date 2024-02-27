@@ -1,0 +1,169 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.radio {
+    display: grid;
+    grid-template-columns: 20px auto;
+    align-items: center;
+}
+
+.cmdIcon {
+    font-size: 1.5rem;
+    -webkit-text-stroke-color: white;
+    -webkit-text-fill-color: rgb(0, 87, 204);
+    text-align: center;
+    margin: 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: dodgerblue !important;
+    color: white;
+    text-align: center !important;
+    max-width: 280px !important;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background-color: green !important;
+    color: white;
+    text-align: center !important;
+    max-width: 280px !important;
+    text-decoration: none;
+}
+
+.btn-cancel {
+    background-color: gray !important;
+    color: white;
+    text-align: center !important;
+    max-width: 280px !important;
+    text-decoration: none;
+}
+
+.btn-danger {
+    background-color: darkRed !important;
+    color: white;
+    text-align: center !important;
+    max-width: 280px !important;
+    text-decoration: none;
+}
+
+fieldset {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    max-width: 280px !important;
+    border-radius: 6px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+legend {
+    font-size: 1.2em;
+}
+
+.transparentBackground {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.detailsHeader {
+    display: grid;
+    grid-template-columns: 60px auto auto;
+    align-items: center;
+}
+
+.thumbnailListContainer {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fill, 185px);
+}
+
+.thumbnailContainer {
+    text-align: center;
+    width: 180px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+/*took from: https://stackoverflow.com/questions/67854299/columns-side-by-side-with-css-grid*/
+.detailsContainer {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 350px auto;
+    grid-column-gap: 0;
+    width: 80vw;
+}
+
+
+.thumbnailHeader {
+    margin: auto;
+    width: 95%;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.textArea {
+    display: inline-block;
+}
+.imageArea {
+    display: inline-block;
+}
+
+.thumbnail {
+    width: 63px;
+    height: 170px;
+    margin: 3px;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-size: cover;
+    margin: 0 auto;
+}
+
+.siteIcon {
+    width: 63px;
+    height: 63px;
+    background-size: cover;
+}
+
+.thumbnailContainer:hover {
+    filter: brightness(1.1);
+    transform: scale(1.1);
+}
+
+.previewBig {
+    width: 325px;
+    height: 900px;
+    margin: 6px;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-size: contain;
+    display:inline-block;
+}
+
+.descriptionTextArea {
+    width: 100% !important;
+    max-width: 280px !important;
+}
+
+input[type=checkbox] {
+    transform: scale(1.2);
+}

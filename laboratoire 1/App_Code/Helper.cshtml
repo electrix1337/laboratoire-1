@@ -1,0 +1,27 @@
+﻿
+@helper ImageUploader(string targetControlId, string imageUrl, string waitingImage, string TooltipMessage = "")
+{
+    <div class='imageUploader'
+         controlId='@targetControlId'
+         imageSrc='@imageUrl'
+         waitingImage='@waitingImage'
+         title="@TooltipMessage">
+    </div>
+}
+
+@helper GuitarImage(string id, string imgClass, string url)
+{
+    <div id="@id" class='@imgClass' style='background:url(@url) no-repeat center; background-size: cover;  '></div>
+}
+
+@helper BoolToValue(bool b, string falseText = "non", string trueText = "oui")
+{
+    if (b)
+    {
+        @trueText
+    }
+    else
+    {
+        @falseText
+    }
+}

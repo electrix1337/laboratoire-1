@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+            $("#RotateImage").click(function () {
+                rotateBase64Image90deg("Image", true);
+            })
+    </script>
+}

@@ -1,0 +1,121 @@
+﻿@model MyCRUD_WebApp_JSON.Models.Guitar
+@{
+    bool createMode = (Model == null) || (Model.Id == 0);
+    ViewBag.Title = "Create";
+    MyCRUD_WebApp_JSON.Models.SellersRepository sellersRepos = MyCRUD_WebApp_JSON.Models.DB.Sellers;
+
+    SelectList sellersList = sellersRepos.ToSelectList("Vendeurs");
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SellerId, htmlAttributes: new { @class = "control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.SellerId, sellersList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.SellerId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Maker, htmlAttributes: new { @class = "control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Maker, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Maker, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+            <fieldset>
+                <legend>
+                    <i class="cmdIcon fa fa-rotate" id="RotateImage" title="Pivoter l'image"></i>
+                </legend>
+                <div class="col-md-10">
+                    @Helper.ImageUploader("Image", Model.Image, "/Images_Data/Loading_icon.gif", "Cliquez pour sélectionner une image")
+                </div>
+            </fieldset>
+            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Year, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Year, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    @Html.LabelFor(model => model.Condition, htmlAttributes: new { @class = "control-label" })
+                </legend>
+                <div class="col-md-10">
+                    @Html.RadioButtonsGroupFor(model => model.Condition)
+                    @Html.ValidationMessageFor(model => model.Condition, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+        </div>
+        <div class="form-group">
+            <fieldset>
+                <legend>
+                    @Html.LabelFor(model => model.GuitarType, htmlAttributes: new { @class = "control-label" })
+                </legend>
+                <div class="col-md-10">
+                    @Html.RadioButtonsGroupFor(model => model.GuitarType)
+                    @Html.ValidationMessageFor(model => model.GuitarType, "", new { @class = "text-danger" })
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <br />
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+@{
+    if (sellersRepos.Count == 0)
+    {
+        Response.Redirect("/Guitare/Index");
+    }
+}
+<div>
+    <br />
+    @Html.ActionLink("Retour", "Index")
+</div>
+
+
+
+

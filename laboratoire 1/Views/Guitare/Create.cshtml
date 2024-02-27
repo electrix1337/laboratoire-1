@@ -1,0 +1,18 @@
+﻿@model MyCRUD_WebApp_JSON.Models.Guitar
+
+<h2>Ajout de guitare à vendre</h2>
+<hr />
+
+@{
+    ViewBag.Title = "Ajout de guitare";
+    Html.RenderPartial("GuitareForm");
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $("#RotateImage").click(function () {
+            rotateBase64Image90deg("Image", true);
+        })
+    </script>
+}

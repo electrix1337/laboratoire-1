@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MyCRUD_WebApp_JSON.Models.Seller>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+        <th></th>
+        <th>
+            <a href="/Sellers/Create" class="cmdIcon fa fa-plus" title="Ajouter un vendeur"></a>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <div>@item.Phone</div>
+            </td>
+
+            <td>
+                <a href="/Sellers/Details/@item.Id" class="cmdIcon fa fa-eye" title="Détails @item.Name "></a>
+            </td>
+            <td>
+                <a href="/Sellers/Edit/@item.Id" class="cmdIcon fa fa-edit" title="Modifier @item.Name "></a>
+            </td>
+
+            <td>
+                <i class="cmdIcon fa fa-trash"
+                   title="Effacer le vendeur @item.Name "
+                   onclick="bootbox.confirm('Effacer le vendeur @item.Name?', function(result){ if (result) window.location = '/Sellers/Delete/@item.Id'; })">
+                </i>
+            </td>
+        </tr>
+    }
+
+</table>

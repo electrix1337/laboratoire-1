@@ -1,0 +1,77 @@
+﻿@model MyCRUD_WebApp_JSON.Models.Guitar
+@{
+    ViewBag.Title = "details";
+}
+
+@section Scripts {
+    @Styles.Render("~/Content/css")
+}
+
+<h2>
+    @Html.DisplayNameFor(model => model.Seller.Name) /
+    @Html.DisplayNameFor(model => model.Model) ||
+    @Html.DisplayNameFor(model => model.Maker)
+    <td>
+        <a href="/Guitare/Edit/@Model.Id" class="cmdIcon fa fa-edit" title="Modifier @Model.Model "></a>
+    </td>
+    <i class="cmdIcon fa fa-trash"
+       title="Effacer le model @Model.Model "
+       onclick="bootbox.confirm('Effacer @Model.Model || @Model.Maker ?', function(result){ if (result) window.location = '/Guitare/Delete/@Model.Id'; })">
+    </i>
+    <a href="/Guitare/Index" class="cmdIcon fa-solid fa-arrow-left" title="retour"></a>
+</h2>
+<div class="detailsContainer">
+    <div class="previewBig">
+        @Helper.GuitarImage("Image", "previewBig", Model.Image)
+    </div>
+    <div class="textArea">
+        <h2>
+            @Html.DisplayNameFor(model => Model.Seller) : 
+            <a href="/Sellers/Details/@Model.SellerId" class="cmdIcon fa fa-edit" title="Modifier @Model.Model ">@Html.DisplayFor(model => Model.Seller.Name)</a>
+        </h2>
+        <br />
+        <hr />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.AddDate)
+        </h5>
+        @Html.DisplayFor(model => Model.AddDate)
+        <br />
+        <hr />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.Description)
+        </h5>
+        @Html.DisplayFor(model => Model.Description)
+        <br />
+        <hr />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.Year)
+        </h5>
+        @Html.DisplayFor(model => Model.Year)
+        <br />
+        <br />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.Condition)
+        </h5>
+        @Html.DisplayFor(model => Model.Condition)
+        <br />
+        <br />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.Condition)
+        </h5>
+        @Html.DisplayFor(model => Model.Condition)
+        <br />
+        <br />
+
+        <h5>
+            @Html.DisplayNameFor(model => Model.Price)
+        </h5>
+        @Html.DisplayFor(model => Model.Price)
+    </div>
+</div>
+
+

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MyCRUD_WebApp_JSON.Models.Guitar>
+@{
+    ViewBag.Title = "Guitares Bazar";
+}
+
+
+
+<p>
+    <h1>Guitares à vendre <a href="/Guitare/Create" class="cmdIcon fa fa-plus" title="Ajouter une Guitare"></a></h1>
+</p>
+
+<hr />
+
+<main>
+    <div class="thumbnailListContainer">
+        @foreach (var item in Model)
+        {
+            <div class="thumbnailContainer">
+                <a href="/Guitare/Details/@item.Id" class="">
+                    @Html.DisplayFor(model => item.Model) <br />
+                    @Helper.GuitarImage("Image", "thumbnail", item.Image)
+                </a>
+            </div>
+        }
+    </div>
+</main>

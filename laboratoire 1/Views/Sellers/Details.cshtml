@@ -1,0 +1,24 @@
+﻿@model MyCRUD_WebApp_JSON.Models.Seller
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <div>
+        @Model.Name
+    </div>
+    <td>
+        <a href="/Sellers/Edit/@Model.Id" class="cmdIcon fa fa-edit" title="Modifier @Model.Name "></a>
+    </td>
+    <i class="cmdIcon fa fa-trash"
+       title="Effacer le vendeur @Model.Name "
+       onclick="bootbox.confirm('Effacer le vendeur @Model.Name?', function(result){ if (result) window.location = '/Sellers/Delete/@Model.Id'; })">
+    </i>
+    <a href="/Sellers/Index" class="cmdIcon fa-solid fa-arrow-left" title="retour"></a>
+    <br />
+    <h3>@Html.DisplayNameFor(model => model.Email)</h3><br />
+    @Html.DisplayFor(modelItem => Model.Email)<br />
+    @Html.DisplayNameFor(model => model.Phone)<br />
+    @Html.DisplayFor(modelItem => Model.Phone)
+</div>
+<h2>Details</h2>
